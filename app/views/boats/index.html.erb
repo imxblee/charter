@@ -1,0 +1,25 @@
+<h1>Boat listing Page</h1>
+		<div class='row'>
+
+		  <div class=" fillmeup ">
+			<h1> Section reserved for filter boats</h1>
+		</div>
+	</div>
+<% @boats.each do |boat| %>
+  <div class="booyah-box col-xs-10 col-xs-offset-1 ">
+  	<div class='row'>
+	  	<div class='col-xs-3'>
+	  		<%= image_tag('boat1.jpg', size: "140x120") %>  <!-- need add in boat_picture to Boat model-->
+	  	</div>
+	  	<div class='col-xs-9'>
+		    <p>Boat Name: <%= link_to boat.boat_name ,boat_path(boat) %></p>
+		    <p>Owner: <%= boat.owner_name %></p>
+		    <p>Description: <%= boat.description %></p>
+		    <p>Location: <%= boat.location %></p>
+		    <p>Country: <%= boat.country %></p>
+		    <p>Price: <%= number_to_currency(boat.price) %></p><br />
+		    <button>BOOK NOW</button>
+	    </div>
+    </div>
+</div>
+<% end %>

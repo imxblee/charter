@@ -28,17 +28,42 @@
 	</div>
 </div>
 
-<div class='container'>
-	<div class='col-xs-12'>
-		<h1>Photo Gallery</h1>
-	</div>
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
 
+<h1>Photo Gallery</h1>
+<!-- The Gallery as lightbox dialog, should be a child element of the document body -->
+<div id="blueimp-gallery" class="blueimp-gallery  blueimp-gallery-controls">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+</div>
+
+
+<div id="links">
+	 <a href="/assets/boat1.jpg" title="Photo 1">
+	    <%= image_tag('boat1.jpg', size: "250x150") %>
+	  </a>
+	  <a href="/assets/boat1.jpg" title="Photo 2">
+	    <%= image_tag('boat1.jpg', size: "250x150") %>
+	  </a>
+	  <a href="/assets/boat1.jpg" title="Photo 3">
+	    <%= image_tag('boat1.jpg', size: "250x150") %>
+	  </a>
+</div>
+
+<script>
+document.getElementById('links').onclick = function (event) {
+    event = event || window.event;
+    var target = event.target || event.srcElement,
+        link = target.src ? target.parentNode : target,
+        options = {index: link, event: event},
+        links = this.getElementsByTagName('a');
+    blueimp.Gallery(links, options);
+};
+</script>
 </div>
 <div class='container'>
 	<div class='col-xs-12'>
